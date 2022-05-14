@@ -1,0 +1,24 @@
+pragma solidity ^0.8.7;
+contract Aadhar_details{
+
+    mapping(address => User) _user;
+
+    
+
+    struct User {
+        string _name;
+        uint _age;
+        string _DOB;
+        string _walletaddress;
+        string _addressofuser;
+    }
+
+    function addUserdetails(address _useraccount, string memory _name, uint _age,string memory _walletaddress,string memory _DOB,string memory _addressofuser) public {
+        _user[_useraccount] = User(_name, _age,_DOB,_walletaddress,_addressofuser);
+    }
+
+    function getUserdetails(address _address) view public returns(User memory) {
+        return _user[_address];
+    }
+
+}
